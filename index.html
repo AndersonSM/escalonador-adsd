@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="escalonador">
+<head>
+    <meta charset="UTF-8">
+    <title>Escalonador</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/escalonadorCtrl.js"></script>
+</head>
+<body ng-controller="escalonadorCtrl">
+    <div>
+        <h4>Velocidade da simulação (milisegundos)</h4>
+        <input type="number" min="1" ng-model="vel">
+        <h4>Tempo total da simulação</h4>
+        <input type="number" min="10" ng-model="tempo">
+    </div>
+    <div>
+        <button ng-click="run()">Iniciar</button>
+        <button ng-click="pause()">Pausar</button>
+        <button ng-click="stop()">Resetar</button>
+    </div>
+    <div>
+        <h3>Segundos: {{ segundos }}</h3>
+        <h3>Fila 1: {{ fila1 }}</h3>
+        <h3>Fila 2: {{ fila2 }}</h3>
+        <h3>Estado: {{ servico ? 'OCUPADO' : 'LIVRE' }}</h3>
+    </div>
+
+    <p ng-repeat="log in logs track by $index">{{ log }}</p>
+</body>
+</html>
